@@ -123,12 +123,9 @@ class EvolvableSelector(AmbulanceSelector):
             ambulances_times.append(
                 (time, amb)
             )
-        
+        # Dummy logic to deliver a result
         for amb_time in ambulances_times:
             minValue = self.runGP(amb_time[0])
-        
-        print(ambulances_times)
-       
-        ambulanceSelected = list(filter(lambda ambTime: ambTime[0].total_seconds() == minValue, ambulances_times))[0]
-
+               
+        ambulanceSelected = ambulances_times[0][1]
         return ambulanceSelected
